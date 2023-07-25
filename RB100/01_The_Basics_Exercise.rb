@@ -1,12 +1,12 @@
 #1.Add two strings together that, when concatenated, return your first and last name as your full name in one string.
 #concatenate
   #assign names to a variable
-  first_name = 'Refilwe'
-  last_name = 'Magwaneng'
+  first_name = 'Thabo'
+  last_name = 'Pule'
   puts first_name + ' ' + last_name
 #interpolation solution
-  first_name = 'Refilwe'
-  last_name = 'Magwaneng'
+  first_name = 'Thabo'
+  last_name = 'Pule'
   puts "#{first_name} #{last_name}"
 
 #2. Use the modulo operator, division, or a combination of both to take a 4 digit number and find the digit in the: 1) thousands place 2) hundreds place 3) tens place 4) ones place
