@@ -43,6 +43,6 @@ a = 5
 some_method(a) #1. a is passed in to the method
 puts a
 
-#Does the reassigment of the number to 1 affect a's output?
+# Does the reassigment of the number to 1 affect a's output?
 # No, since number is scoped at the method definition level and a's value remains unchanged
 # Method definitions cannot modify arguments passed into them permanently.
