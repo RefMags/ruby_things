@@ -34,5 +34,5 @@ def mutate(array)
   array.pop
 end
 p "Before mutate method: #{a}"
-mutate(a)
-p ""
+p mutate(a)
+p "After mutate method: #{a}"
