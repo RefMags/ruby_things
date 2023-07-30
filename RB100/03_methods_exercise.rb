@@ -31,7 +31,7 @@ multiply(26, 30)
 
 def scream(words)
   words = words + "!!!!" #words is reassigned, to return vallue of concatinanting words with a string of !!
-  return #reserve word, Ruby exits from method when this is explicitly stated and subsiquent code is not executed.
+  return #reserve word, Ruby exits from method when this is explicitly stated and subsequent code is not executed.
   puts words
 end
 
