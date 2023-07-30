@@ -26,3 +26,14 @@ while x < 5
 end
 
 puts y # "y" is initialized in the body of the while loop to get 16
+
+
+# Ex 4 ~~ Until loop: simply opposite of while loop
+puts " Insert your number to test until: "
+x = gets.chomp.to_i
+
+until x < 0
+  puts x
+  x -= 1
+end
+puts "Done!"
