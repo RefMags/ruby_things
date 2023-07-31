@@ -16,4 +16,7 @@ def doubler(start)
   end
 end
 
+doubler(3)
+doubler(8)
+
 # Ex 3. calculating the nth number in the fibonacci sequence
