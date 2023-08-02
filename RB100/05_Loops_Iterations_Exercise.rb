@@ -23,7 +23,7 @@ end
 #method takes in a value
 def counter(number)
   # if already at zero
-  if number.zero?
+  if number.zero? #Base case
   puts number
   else
     puts number
