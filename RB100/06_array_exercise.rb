@@ -40,18 +40,18 @@ arr = [["test", "hello", "world"],["example", "mem"]]
 
 # arr = [15, 7, 18, 5, 12, 8, 5, 1]
 
-# 1. arr.index(5)
+# 1. arr.index(5) # returns the index of a specified element => 5 is the element specified that is in returned index 3
 
-# 2. arr.index[5]
+# 2. arr.index[5] # gives out an erro undefined method []
 
-# 3. arr[5]
+# 3. arr[5] # retuns the element "8" of a specified index [5]
 
 # 5. What is the value of a, b, and c in the following program?
 
 # string = "Welcome to America!"
-# a = string[6]
-# b = string[11]
-# c = string[19]
+# a = string[6] # "e"
+# b = string[11] # "A"
+# c = string[19] # "nil"
 
 # 6. You run the following code...
 
@@ -67,6 +67,34 @@ arr = [["test", "hello", "world"],["example", "mem"]]
 
   # What is the problem and how can it be fixed?
 
+  # ANSWER:
+      # Part 1: a string "margaret" which is the value has been used to reassign an item in an array, using it as the key, but it is supposed to be indexed with an integer.
+      # Part 2 : modify by placing 3 as key
+
 # 7. Use the each_with_index method to iterate through an array of your creation that prints each index and value of the array.
 
+arr = [32, 21, 19, 12, 50, 54, 35]
+arr.each_with_index do |element, index|
+  puts "#{index}. #{element}"
+end
+
+
 # 8. Write a program that iterates over an array and builds a new array that is the result of incrementing each value in the original array by a value of 2. You should have two arrays at the end of this program, The original array and the new array you've created. Print both arrays to the screen using the p method instead of puts.
+
+arr = [32, 21, 19, 12, 50, 54, 35]
+new_arr = [] # new values to be collected in new array
+
+arr.each do |n|
+  # new_arr << n + 2 #shovel operator
+  new_arr.append(n + 2) # populate the elements by adding
+end
+
+p arr
+p new_arr
+
+new_arr = arr.map do |n|
+  n + 2
+end
+
+p arr
+p new_arr
