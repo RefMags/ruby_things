@@ -89,9 +89,23 @@ contact_data = [["joe@email.com", "123 Main st.", "555-123-4567"],
 
 contacts = {"Joe Smith" => {}, "Sally Johnson" => {}}
 
-#how do we access each element of the subarray
-# how to do we populate the hash associated with each key in contacts hash
+# My initial thoughts
+# each subarray element is associated with a key in the contacts hash
+# assign key values of the contacts hash: there is a hash in a hash
+  # how do I fetch the relevant element from the Array to assign to the key value of the contact hash "SUGGESTION = use dig method"
+contacts["Joe Smith"][:email] = contact_data.dig(0, 0)
+contacts["Joe Smith"][:address] = contact_data.dig(0, 1)
+contacts["Joe Smith"][:phone] = contact_data.dig(0, 2)
+contacts["Sally Johnson"][:email] = contact_data.dig(1, 0)
+contacts["Sally Johnson"][:address] = contact_data.dig(1, 1)
+contacts["Sally Johnson"][:phone] = contact_data.dig(1, 2)
+p contacts
 
+
+
+# Solution from LS
+# how do we access each element of the subarray
+# how to do we populate the hash associated with each key in contacts hash
 # how do we perform element assignment to a key valuein a hash
 
 
@@ -123,3 +137,59 @@ a = ['white snow', 'winter wonderland', 'melting ice',
      'slippery sidewalk', 'salted roads', 'white trees']
 
 # and turn it into a new array that consists of strings containing one word. (ex. ["white snow", etc...] → ["white", "snow", etc...]. Look into using Array's map and flatten methods, as well as String's split method.
+
+a1 = a.map {|element| element.to_s.split }
+a1 = a1.flatten
+p a1
+
+# 15. What will the following program output?
+
+hash1 = {shoes: "nike", "hat" => "adidas", :hoodie => true}
+hash2 = {"hat" => "adidas", :shoes => "nike", hoodie: true}
+
+if hash1 == hash2
+  puts "These hashes are the same!"
+else
+  puts "These hashes are not the same!"
+end
+# we are comparing equality of the hashes. key value pairs are in different orders
+# we dont rely on the order in hash compared to array.
+# the program prints "These hashes are the same" because:
+# the two objects are treated as the same key when their hash value is identical and the two objects are eql? to each other
+
+
+# 16. Challenge: In exercise 11, we manually set the contacts hash values one by one. Now, programmatically loop or iterate over the contacts hash from exercise 11, and populate the associated data from the contact_data array. Hint: you will probably need to iterate over ([:email, :address, :phone]), and some helpful methods might be the Array shift and first methods.
+
+# Note that this exercise is only concerned with dealing with 1 entry in the contacts hash, like this:
+
+contact_data = ["joe@email.com", "123 Main st.", "555-123-4567"]
+
+contacts = {"Joe Smith" => {}}
+
+# create a variable of array for the contact_data key values ie "contact_info"
+contact_info = [:email, :address, :phone]
+
+# the loop must iterate through the main(outer) hash
+
+contacts.each do | key, hash_value|
+  contact_info.each do |contact|
+    hash_value[contact] = contact_data.shift
+  end
+end
+
+#output the contacts
+p contacts
+
+# two dimensional array
+contact_data = [["joe@email.com", "123 Main st.", "555-123-4567"],
+            ["sally@email.com", "404 Not Found Dr.", "123-234-3454"]]
+
+contacts = {"Joe Smith" => {}, "Sally Johnson" => {}}
+
+contacts.each_with_index do | (key, hash_value), index|
+  contact_info.each_with_index do |contact|
+    hash_value[contact] = contact_data[index].shift
+  end
+end
+
+p contacts
