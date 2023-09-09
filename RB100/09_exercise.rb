@@ -192,4 +192,4 @@ contacts.each_with_index do | (key, hash_value), index|
   end
 end
 
-p contacts
+p contacts 
