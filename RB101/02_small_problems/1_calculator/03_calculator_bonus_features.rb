@@ -1,7 +1,7 @@
 # build a calculator
 # ask the user for two number
 # ask the user for the type of operation they would like to perform
-  # addition , subtraction, division or multiplication
+# addition , subtraction, division or multiplication
 # Perform an operation of the two numbers and display results.
 
 # REFACTORING CODE #
@@ -13,21 +13,22 @@
 # 2. Number validation
 #   How can we build a validating method, called number? to verify that only
 #   numbers --integers or floats-- are entered?
-# 3. Derisk the "operation_to_message" method to accomodate for additional code
-  # that may be added after the "case" statement within the method.
-  # Add some changes
+# 3. Derisk the "operation_to_message" method to accomodate for additional
+# code that may be added after the "case" statement within the method.
+# Add some changes
 # 4. Extracting messages in the program to a configuration file.
-#   Because there are lots of messages to the program, we could move them into a
-#   configuration file and access by key.
+#   Because there are lots of messages to the program, we could move them into
+#   a configuration file and access by key.
 # 5. Internationalize the message in your calculator.
-  # Using the configuration file,send message to call the right translation to cod
-  # validate that only a language is choosen/ message that only certain language
-  # exists
+# Using the configuration file,send message to call the right translti to cod
+# validate that only a language is choosen/ message that only certain language
+# exists
 
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
+# Validating the
 def valid_number?(number)
   number.to_i != 0
 end
@@ -130,3 +131,39 @@ loop do # main loop
 end
 
 prompt("Thank you for using the calculator. Goodbye!")
+
+
+# Question 1
+# I messed up my rainbow array. How can I replace `nil` with the proper next color, 'green'?
+
+next_color = 'green'
+rainbow = ['red', 'orange', 'yellow', nil]
+
+# Your Code Here
+
+p rainbow // ['red', 'orange', 'yellow', 'green']
+
+
+
+
+# Question 2
+# Right now, this code prints every number out. Can you write an expression that will only print a number if it's evenly divisible by 3?
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+numbers.each do |number|
+  if # Your expression here
+    puts "#{number} is divisible by 3!"
+  end
+end
+
+
+# Question 3
+# Without knowing what `value2` is, is there a value we can assign to `value1` to guarentee that we don't print the "Don't print me!!!" String? What mechanism is at play here?
+
+value1 = # ???
+value2 = # Our Choice
+
+if value1 && value2
+  puts "Don't print me!!!"
+end
