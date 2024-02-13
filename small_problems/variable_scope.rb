@@ -97,4 +97,4 @@ end
 
 my_value(array)
 puts a
-# => error, undefined method 
+# => error, undefined method

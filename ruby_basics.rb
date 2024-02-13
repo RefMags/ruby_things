@@ -1,7 +1,7 @@
 # 1. Creating an uppercase version of "xyz"
 
 # assign "xyz" to a variable and prepend it with a period to #upcase method
-s = "xyz"
+s = 'xyz'
 p s.upcase
 
 # 2. Inserting values between an array
@@ -13,9 +13,9 @@ a.insert(3, 5, 6, 7)
 
 # 3. optional arguments, what would the statement print?
 
-s = "abc def ghi, jkl mno pqr, stu vwx yz"
+s = 'abc def ghi, jkl mno pqr, stu vwx yz'
 
-# a) the split would occur just as if the field_sep was given as a space character.
+# the split would occur just as if the field_sep was given as a space character.
 puts s.split.inspect
 
 # =>["abc", "def", "ghi,", "jkl", "mno", "pqr,", "stu", "vwx", "yz"]
@@ -29,3 +29,13 @@ puts s.split(',').inspect
 puts s.split(',', 2).inspect
 
 # => ["abc def ghi", " jkl mno pqr, stu vwx yz"]
+
+# PART 2
+a = 'Xyzzy'
+
+def my_value(b)
+  b = a + a
+end
+
+my_value(a)
+puts a

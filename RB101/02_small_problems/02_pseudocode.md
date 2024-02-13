@@ -23,7 +23,7 @@ END
 <!-- Casual -->
 Given an array of strings e.g array = ["Bob", "Dylan"]
 Create a new string
-Iterate through the array of string on by one
+Iterate through the array of string one by one
   - Save the first string as the first starting string.
   - For each iteration, add(concatenate) to the saved string.
 
@@ -87,7 +87,7 @@ END
 
 # 4. a method that determines the index of the 3rd occurrence of a given character in a string. For instance, if the given character is 'x' and the string is 'axbxcdxex', the method should return 6 (the index of the 3rd 'x'). if the given character does not occur at least 3 times, return nil.
 <!-- Casual -->
-Given a string.
+<!-- Given a string.
 Iterate over each index of a string to test.
   - for each iteration check the equality of each character in a string with the desired character assigned the variable.
   - Count the number of times the iteration encounters the desired character.
@@ -95,17 +95,28 @@ Iterate over each index of a string to test.
     - print the location index at which the desired character occurs.
   - else if the given character does not occur for atleast 3rd time in a given string, returns nil.
 
-  After iterating through the string, return the index of the 3rd desired character.
+  After iterating through the string, return the index of the 3rd desired character. -->
 
+
+
+<!-- Formal -->
 ```
 START
-
-Given  a string.
-SET iteration = 0
-
-SET string.each do | character.3times|
-
-
+Given a collection of characters called “string”
+SET given_character = specified character
+SET iterator = 1
+WHILE iterator < = length of strings
+  SET current_character = value within string collection at space “iterator”
+  IF given_character == current_character
+    SET COUNT = [ ]
+    if count == 3
+    print location of count at 3
+    ELSE
+    print nil if given_character does not occur at least 3 times
+    ELSE
+    skip character
+  iterator = iterator  + 1
+PRINT count_position
 
 END
 ```
@@ -128,3 +139,21 @@ Iterate through the second collection one by one.
 After iterating through the collection, return the new_array.
 
 <!-- Formal -->
+START
+Given a two collection of integers called “numbers1 and numbers2”.
+SET new_array = [ ]
+SET iterator = 0
+WHILE iterator < = length of numbers1
+  IF iterator index is even
+  append to new_array
+  ELSE
+  leave odd index empty
+  iterator = iterator + 1
+WHILE iterator < = length of numbers2
+  IF iterator index is odd
+  append to new_array
+  ELSE
+    skip even index empty
+  iterator = iterator + 1
+PRINT new_array
+END
