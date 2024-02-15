@@ -1,6 +1,6 @@
 # building a command line calculator
 # ask user for two numbers
-# ask user for the type of operation to perform: add, subtract, multiply or divide.
+# ask user for the type of operation to perform: add, subtract, multiply or div.
 # perform an operation of the two numbers
 # displays the results
 #  REFACTORING Calculator
@@ -43,8 +43,8 @@ end
 
 prompt("Hi #{name}!")
 
-loop do # main loop
-  number1 = '' # initialize the number variable outside to allow access throught the program.
+loop do # main loop=> encapsulates all the program.
+  number1 = '' # initialize the num outside to access it throughout the program.
   loop do
     prompt("Please enter the first number: ")
     number1 = Kernel.gets().chomp()
