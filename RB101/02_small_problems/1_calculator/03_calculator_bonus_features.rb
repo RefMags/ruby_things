@@ -131,39 +131,3 @@ loop do # main loop
 end
 
 prompt("Thank you for using the calculator. Goodbye!")
-
-
-# Question 1
-# I messed up my rainbow array. How can I replace `nil` with the proper next color, 'green'?
-
-next_color = 'green'
-rainbow = ['red', 'orange', 'yellow', nil]
-
-# Your Code Here
-
-p rainbow // ['red', 'orange', 'yellow', 'green']
-
-
-
-
-# Question 2
-# Right now, this code prints every number out. Can you write an expression that will only print a number if it's evenly divisible by 3?
-
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-
-numbers.each do |number|
-  if # Your expression here
-    puts "#{number} is divisible by 3!"
-  end
-end
-
-
-# Question 3
-# Without knowing what `value2` is, is there a value we can assign to `value1` to guarentee that we don't print the "Don't print me!!!" String? What mechanism is at play here?
-
-value1 = # ???
-value2 = # Our Choice
-
-if value1 && value2
-  puts "Don't print me!!!"
-end
