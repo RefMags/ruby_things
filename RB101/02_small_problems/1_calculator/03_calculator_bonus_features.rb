@@ -28,10 +28,75 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-# Validating the
+# Validating number
 def valid_number?(number)
   number.to_i != 0
 end
+
+=begin
+Input: A string
+Output: true/false
+
+Return true if and only if the input string consists of only numbers.
+
+Input cases that will lead to false:
+"a"
+"+"
+"25a"
+
+The original code (number.to_i != 0) is a hint.
+How does it work? Why did we use that solution eventhough it is imperfect?
+
+Trying out false input cases with to_i:
+"25a".to_i => 25
+
+We want:
+valid_number("25a") => false
+
+This is really helpful, because calling to_i on "25a" got rid of the "a"!
+"25a".to_i => 25
+
+Can we compare the return value after to_i with the original object?
+Yes! We just need to convert it back to a string:
+"25a".to_i.to_s => "25"
+
+Now that we have the value after the final transformation, we can compare if it's the same as its original.
+"25a".to_i.to_s == "25a" => false
+
+---------------------------------
+"a".to_i.to_s            => "0"
+"a".to_i.to_s == "a"     => false
+valid_number?("a")       => false
+
+"25a".to_i.to_s          => "25"
+"25a".to_i.to_s == "25a" => false # false is what we want
+valid_number?("25a")     => false
+
+"25".to_i.to_s           => "25"
+"25".to_i.to_s == "25"   => true  # true is what we want
+valid_number?("25")      => true
+
+"0".to_i.to_s            => "0"
+"0".to_i.to_s == "0"     => true  # true is what we want
+valid_number?("0")       => true
+
+def valid_number?(number)
+  number.to_i.to_s == number
+end
+
+'a25'.to_i.to_s          => "0"
+'a25'.to_i.to_s == "a25" => false # false is what we want
+---------------------------------
+
+"a".to_i.to_s => "0"
+"a".to_i.to_s == "a" => false
+
+"0".to_i.to_s => "0"
+"0".to_i.to_s == "0" => true
+
+number.to_i != 0
+
+=end
 
 def operation_to_message(op)
   case op
