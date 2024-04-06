@@ -28,9 +28,15 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-# Validating number
-def valid_number?(number)
-  number.to_i != 0
+# Validating number(either an integer or float)
+def integer(number)
+  # number.to_i != 0
+  number.to_i.to_s == number
+end
+
+def float(number)
+  # number.to_i != 0
+  number.to_f.to_s == number
 end
 
 =begin
@@ -98,6 +104,11 @@ number.to_i != 0
 
 =end
 
+def valid_number?(number)
+  # number.to_i != 0
+  number.to_i.to_s == number || number.to_f.to_s == number
+end
+
 def operation_to_message(op)
   case op
   when '1'
@@ -125,26 +136,28 @@ loop do
 end
 
 prompt("Hi #{name}")
-loop do # main loop
+
+# MAIN LOOP
+loop do
   # Get user's numbers
-  first_number = ''
+  num1 = ''
   loop do
     prompt("Please input your first number")
-    first_number = Kernel.gets().chomp()
+    num1 = Kernel.gets().chomp()
 
-    if valid_number?(first_number)
+    if valid_number?(num1)
       break
     else
       prompt("Hmmm... that doesnt look like a valid number")
     end
   end
 
-  second_number = ''
+  num2 = ''
   loop do
     prompt("Please input your second number")
-    second_number = Kernel.gets().chomp()
+    num2 = Kernel.gets().chomp()
 
-    if valid_number?(second_number)
+    if valid_number?(num2)
       break
     else
       prompt("Hmmm... that doesnt look like a valid number")
@@ -175,24 +188,26 @@ loop do # main loop
 
   prompt("#{operation_to_message(operator)} the two numbers....")
 
-  # refactor using case statement
+  # inlude a no zero division method
+  def no_zero_division?(num2, op)
+    num2.to_i == 0 && op == '4'
+  end
 
-  results = case operator
-            when '1'
-              first_number.to_i() + second_number.to_i()
-            when '2'
-              first_number.to_i() - second_number.to_i()
-            when '3'
-              first_number.to_i() * second_number.to_i()
-            when '4'
-              first_number.to_f() / second_number.to_f()
-            end
+  #  perform the operation method
+  def perform_operation(operator, num1, num2)
+    case operator
+      when '1' then num1.to_f() + num2.to_f()
+      when '2' then num1.to_f() - num2.to_f()
+      when '3' then num1.to_f() * num2.to_f()
+      when '4' then num1.to_f() / num2.to_f()
+    end
+  end
 
-  prompt("The result is #{results}")
+  prompt("The result is #{perform_operation(operator, num1, num2)}")
 
   prompt("Do you want to perform another calculation? (Y to calculate again)")
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')
-end
 
-prompt("Thank you for using the calculator. Goodbye!")
+  prompt("Thank you for using the calculator. Goodbye!")
+end
