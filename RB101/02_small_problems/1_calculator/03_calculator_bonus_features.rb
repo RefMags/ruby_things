@@ -1,3 +1,5 @@
+require 'yaml'
+MESSAGES = YAML.load_file('calculator_messages.yml')
 # build a calculator
 # ask the user for two number
 # ask the user for the type of operation they would like to perform
@@ -25,7 +27,7 @@
 # exists
 
 def prompt(message)
-  Kernel.puts("=> #{message}")
+  puts "=> #{message}"
 end
 
 # Validating number(either an integer or float)
@@ -120,60 +122,55 @@ def operation_to_message(op)
   when '4'
     'Dividing'
   end
+  op
 end
 
-prompt("Welcome to the calculator! Enter your name:  ")
+prompt(MESSAGES['welcome'])
 
 name = ''
 loop do
   name = Kernel.gets().chomp()
 
   if name.empty?()
-    prompt("Make sure to use a valid name.")
+    prompt(MESSAGES['valid_name'])
   else
     break
   end
 end
 
-prompt("Hi #{name}")
+prompt(MESSAGES['welcome_message'] + name)
 
 # MAIN LOOP
 loop do
   # Get user's numbers
   num1 = ''
   loop do
-    prompt("Please input your first number")
+    prompt(MESSAGES['insert_number1'])
     num1 = Kernel.gets().chomp()
 
     if valid_number?(num1)
       break
     else
-      prompt("Hmmm... that doesnt look like a valid number")
+      prompt(MESSAGES['valid_number_error'])
     end
   end
 
   num2 = ''
   loop do
-    prompt("Please input your second number")
+    prompt(MESSAGES['insert_number2'])
     num2 = Kernel.gets().chomp()
 
     if valid_number?(num2)
       break
     else
-      prompt("Hmmm... that doesnt look like a valid number")
+      prompt(MESSAGES['valid_number_error'])
     end
   end
 
   # Get user's choice of operation
-  operator_prompt = <<-MSG
-    "Which operation would you like to perform?
-    1) add
-    2) subtract
-    3) multiply
-    4) divide
-  MSG
 
-  prompt(operator_prompt)
+  prompt(MESSAGES['op_prompt_msg'])
+  prompt(MESSAGES['operator_selected'])
 
   operator = ''
   loop do
@@ -182,16 +179,16 @@ loop do
     if %w(1 2 3 4).include?(operator)
       break
     else
-      prompt("Must be 1, 2, 3, or 4")
+      prompt(MESSAGES['operator_option'])
     end
   end
 
   prompt("#{operation_to_message(operator)} the two numbers....")
 
-  # inlude a no zero division method
-  def no_zero_division?(num2, op)
-    num2.to_i == 0 && op == '4'
-  end
+  # # inlude a no zero division method
+  # def no_zero_division?(num2, op)
+  #   num2.to_i == 0 && op == '4'
+  # end
 
   #  perform the operation method
   def perform_operation(operator, num1, num2)
@@ -200,14 +197,19 @@ loop do
       when '2' then num1.to_f() - num2.to_f()
       when '3' then num1.to_f() * num2.to_f()
       when '4' then num1.to_f() / num2.to_f()
+        # if num2 == '0'
+        #   prompt('Cannot divide by 0, please choose another number...')
+        # else
+        #   num1.to_f() / num2.to_f()
+        # end
     end
   end
 
   prompt("The result is #{perform_operation(operator, num1, num2)}")
 
-  prompt("Do you want to perform another calculation? (Y to calculate again)")
+  prompt(MESSAGES['calculate_again?'])
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')
-
-  prompt("Thank you for using the calculator. Goodbye!")
 end
+
+prompt(MESSAGES['goodbye'])

@@ -1,0 +1,13 @@
+welcome: "Welcome to the calculator! Enter your name:  "
+valid_name: "Make sure to use a valid name."
+welcome_message: "Hi "
+insert_number1: "Please input your first number"
+valid_number_error: "Hmmm... that doesnt look like a valid number"
+insert_number2: "Please input your second number"
+op_prompt_msg: "Which operation would you like to perform?"
+operator_selected:   1) add 2) subtract 3) multiply 4) divide
+operator_option: "Must be 1, 2, 3, or 4"
+calculating: " the two numbers...."
+result: "The result is "
+calculate_again?: "Do you want to perform another calculation? (Y to calculate again)"
+goodbye: "Thank you for using the calculator. Goodbye!"
