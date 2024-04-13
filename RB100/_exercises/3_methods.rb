@@ -43,8 +43,8 @@ scream("Yippeee")
 
 def scream(words)
   words = words + "!!!!"
-  return
-  puts words
+  # return
+  # puts words : by commenting or removing this we allow the words assignment expression to assign the local variable words the string "yippie"
 end
 
 scream("Yippeee")
