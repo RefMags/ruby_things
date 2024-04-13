@@ -33,7 +33,7 @@ puts multiply(3, 2)
 
 def scream(words)
   words = words + "!!!!"
-  return
+  return # when you explicity return from a method Ruby exists that method immediately and subsequent code will not be executed.
   puts words
 end
 
