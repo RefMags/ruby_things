@@ -33,7 +33,7 @@ puts multiply(3, 2)
 
 def scream(words)
   words = words + "!!!!"
-  return # when you explicity return from a method Ruby exists that method immediately and subsequent code will not be executed.
+  return # when you explicity return from a method Ruby exits that method immediately and subsequent code will not be executed.
   puts words
 end
 
@@ -45,6 +45,14 @@ def scream(words)
   words = words + "!!!!"
   # return
   # puts words : by commenting or removing this we allow the words assignment expression to assign the local variable words the string "yippie"
+end
+
+# or
+
+def scream(words)
+  words = words + "!!!"
+  puts words
+  return words #swap the return explicit command after we have output(print) out the words.
 end
 
 scream("Yippeee")
