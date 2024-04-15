@@ -2,13 +2,14 @@
 
 (32 * 4) >= 129 #false
 
-false != !True # false
+false != !True # false : expression reads false is not false
 
-true == 4 # false
+true == 4 # false : 4 is a truthy value but not equal to the boolean true
 
-false == (847 == '847') #true
+false == (847 == '847') #true : we compare integer to the string.
 
-(!true || (!(100 / 5) == 20) || ((328 / 4) == 82)) || false #true
+(!true || (!(100 / 5) == 20) || ((328 / 4) == 82)) || false #true : using the || operator if any of the expression evaluates to true then the expression becomes true.
+# The equality expression (328/4) == 82 evaluates to true
 
 # 2. write a method that takes a string as an argument.
 # the method should return a new all-caps version of the string only if the string is longer than 10 characters.
