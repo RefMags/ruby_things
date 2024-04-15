@@ -4,11 +4,11 @@
 
 false != !True # false
 
-true == 4 # true
+true == 4 # false
 
 false == (847 == '847') #true
 
-(!true || (!(100 / 5) == 20) || ((328 / 4) == 82)) || false #
+(!true || (!(100 / 5) == 20) || ((328 / 4) == 82)) || false #true
 
 # 2. write a method that takes a string as an argument.
 # the method should return a new all-caps version of the string only if the string is longer than 10 characters.
@@ -32,7 +32,7 @@ number = gets.chomp.to_i
 
 if number <= 50
   puts "the number is between 0 and 50"
-elsif number > 50 && number <= 100
+elsif (number > 50) && (number <= 100)
   puts "the number is between 51 and 100"
 else
   puts "the number is above 100"
@@ -84,7 +84,7 @@ equal_to_four(5)
 
 (32 * 4) >= "129" # false, comparing string to integer
 847 == '847' # false
-'847' < '846'
-'847' > '846'
-'847' > '8478'
-'847' < '8478'
+'847' < '846' #false
+'847' > '846' #true
+'847' > '8478' #false
+'847' < '8478' #true; if string are equal up to the length of the shorter string, then the shorter string is considered less than the longer string.
