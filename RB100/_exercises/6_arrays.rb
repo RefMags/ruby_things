@@ -33,7 +33,7 @@ puts arr[1][0]
 # 4. how does each method return in the following example?
 arr = [15, 7, 18, 5, 12, 8, 5, 1]
 
-puts arr.index(5) # index returns the index of a specified element, therefor the index position of the element 5 from the arr is 3.
+puts arr.index(5) # index returns the index of the first value equal to our argument, there are two 5 in our array but the method returns the first object in the array equal to our argument.therefor the index position of the element 5 from the arr is 3.
 # array.index[5] # returns a NoMethodError: undefined '[]' for Enumerator
 arr[5] # returns the element at the specified index therefore return is 8
 
