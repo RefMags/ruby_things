@@ -18,15 +18,32 @@ p siblings_arr
 #2.  What is the difference between merge and merge!? Write a program that uses both and illustrate the difference.
 # merge method merges hashes and returns a new merged hash and leaves the original hash unmodified while merge! is destructive
 siblings = {  sisters: ["jane", "jill", "beth"],
-              brothers: ["frank","rob","david"],
+              brothers: ["frank","rob","david"]
             }
 
-extended_family = {   sisters: ["jane", "jill", "beth"],
-                      brothers: ["frank","rob","david"],
+extended_family = {   uncles: ["bob", "joe", "steve"],
+                      aunts: ["mary","sally","susan"]
                     }
+family = {}
+p family.merge(siblings,extended_family)
+p family
+p family.merge!(siblings,extended_family)
+p family
+
 #3. write a program that loops through a hash and prints all of the keys.
 # Then write a program that does the same thing except printing out the values
 # Write a program that prints both
+
+siblings = {  sisters: ["jane", "jill", "beth"],
+              brothers: ["frank","rob","david"]
+            }
+
+siblings.each_key {|key| puts "#{key}"}
+siblings.each_key {|value| puts "#{value}"}
+
+siblings.each do |key, value|
+  puts "My #{key} are #{value}"
+end
 
 
 # 4. How would you access the name of the person?
@@ -40,8 +57,8 @@ puts person.value?('web developer')
 
 # 6. What is the difference between the two hashes created?
 x = "hi there"
-my_hash = {x: "some value"}
-my_hash2 = {x => "some value"}
+my_hash = {x: "some value"} # uses the symbol x as the key
+my_hash2 = {x => "some value"} # uses the string value of the x variables as the key
 
 # 7. If you see this error what do you suspect is the most likely?
 # NoMethodError: undefined method `keys' for Array
