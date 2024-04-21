@@ -75,3 +75,21 @@ end
 # ther should be two arrays at the end of program
 # the original array and the new array creates
 # print both arrays to the screen using the p method instead of puts.
+arr = [2, 4, 6, 8, 10]
+new_arr = []
+
+arr.each do |num|
+  new_arr.append(num + 2)
+end
+
+p arr
+p new_arr
+
+# OR
+
+new_arr = arr.map do |num|
+  num + 2
+end
+
+p arr
+p new_arr
