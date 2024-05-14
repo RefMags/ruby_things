@@ -1,4 +1,4 @@
-# This is an example of PEDAC problem adopted from readings.
+# This is code written as part of PEDAC system thinking.
 
 def sum_of_multiples(target, factors)
   multiples = []
