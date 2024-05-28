@@ -75,8 +75,10 @@ famous_words = "seven years ago..."
 
 # show different ways to put the expected "Four score and" in front of it.
 
-puts "Four score" + " " + famous_words
-puts "Four score #{famous_words}"
+puts "Four score and" + " " + famous_words
+puts "Four score and #{famous_words}"
+famous_words.prepend("Four score and ")
+"Four score and " << famous_words
 
 # QUESTION 7: Building an array like this:
 
