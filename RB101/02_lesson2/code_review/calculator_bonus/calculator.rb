@@ -6,11 +6,11 @@ def prompt(message)
 end
 
 def integer?(input)
-  input.to_s == input
+  input.to_i.to_s == input
 end
 
 def float?(input)
-  input.to_f.to_i == input
+  input.to_f.to_s == input
 end
 
 def number?(input)
@@ -18,59 +18,45 @@ def number?(input)
 end
 
 def operation_to_message(operation)
-  # OPERATION_MESSAGES.fetch(operation)
   MESSAGES['operation_messages'].fetch(operation)
 end
 
-prompt(MESSAGES['welcome'])
+def get_name(user_name)
+  name = ''
+  loop do
+    name = gets.chomp
 
-# Prompt user for their name
-name = ''
-loop do
-  name = Kernel.gets().chomp()
-
-  if name.empty?()
-    prompt(MESSAGES['valid_name'])
-  else
-    break
+    if name.empty?()
+      prompt(MESSAGES['valid_name'])
+    else
+      break
+    end
   end
+
+  name = name.capitalize
+  prompt(MESSAGES['welcome_message'] + name)
+  name
 end
-prompt(MESSAGES['welcome_message'] + name)
 
-# Main loop of calculator program
-loop do
-  prompt(MESSAGES['insert_number1'])
-  number1 = ''
+def get_number(input)
+  number = ''
   loop do
-    number1 = Kernel.gets().chomp()
+    prompt(MESSAGES['insert_number1'])
+    number = Kernel.gets().chomp()
 
-    if integer?(number1)
+    if integer?(number)
       break
     else
       prompt(MESSAGES['invalid_number_error:'])
     end
   end
+  number
+end
 
-  # prompt(messages['insert_number2'])
-  prompt("Please input your second number:")
-  number2 = ''
-  loop do
-    number2 = Kernel.gets().chomp()
-
-    if integer?(number2)
-      break
-    else
-      prompt(MESSAGES['invalid_number_error:'])
-    end
-  end
-
-  # Ask user which operation they want to perform
-  prompt(MESSAGES['op_prompt_msg'])
-  prompt(MESSAGES['op_selection'])
-
+def get_operation(operation)
   operator = ''
   loop do
-    operator = Kernel.gets().chomp().to_i
+    operator = gets().chomp().to_i
     if (1..4).include?(operator)
       break
     else
@@ -78,6 +64,22 @@ loop do
     end
   end
   prompt(MESSAGES['op_sel_confirmation'] + operation_to_message(operator))
+  operator
+end
+
+# Welcome Message
+prompt(MESSAGES['welcome'])
+user_name = get_name(MESSAGES['valid_name'])
+
+# Main loop of calculator program
+loop do
+  number1 = get_number(MESSAGES['insert_number1'])
+  number2 = get_number(MESSAGES['insert_number2'])
+
+  # Ask user which operation they want to perform
+  prompt(MESSAGES['op_prompt_msg'])
+  prompt(MESSAGES['op_selection'])
+  operator = get_operation(MESSAGES['op_prompt_msg'])
 
   result =  case operator
             when 1
@@ -89,8 +91,9 @@ loop do
             when 4
               if number2.to_f.zero?
                 prompt(MESSAGES['zero_div_error'])
-                promp(MESSAGES['greater_than_0_number'])
+                prompt(MESSAGES['greater_than_0_number'])
                 number2 = gets.chomp
+              else
                 number1.to_f / number2.to_f
               end
             end

@@ -1,5 +1,5 @@
 welcome: "Welcome to the Calculator! Please enter your name: "
-valid_name: "Please input correct name: "
+valid_name: "Name cannot be blank, Please input name: "
 welcome_message: "Hi "
 insert_number1: "Please input your first number:"
 invalid_number_error: "Hmmm...that is not a number. Please try again: "
@@ -16,5 +16,5 @@ operation_messages:
 zero_div_error: "Error: Can't divide by zero"
 greater_than_0_number: "Please input number greater than 0:"
 result: " the two numbers is: "
-calculate_again?: "Would you like to do another calculation?"
+calculate_again?: "Would you like to do another calculation?(yes/y)"
 goodbye: "Thank you for using Calculator. See you next time!"
