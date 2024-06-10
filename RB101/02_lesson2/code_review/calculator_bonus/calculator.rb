@@ -40,8 +40,9 @@ end
 
 def get_number(input)
   number = ''
+  prompt(MESSAGES['insert_number1'])
+  prompt(MESSAGES['insert_number2'])
   loop do
-    prompt(MESSAGES['insert_number1'])
     number = Kernel.gets().chomp()
 
     if integer?(number)
