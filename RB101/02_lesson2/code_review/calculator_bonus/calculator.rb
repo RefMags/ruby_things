@@ -41,7 +41,7 @@ end
 def get_number(input)
   number = ''
   prompt(MESSAGES['insert_number1'])
-  prompt(MESSAGES['insert_number2'])
+  # prompt(MESSAGES['insert_number2'])
   loop do
     number = Kernel.gets().chomp()
 
@@ -68,6 +68,26 @@ def get_operation(operation)
   operator
 end
 
+def calculation(number1,number2,operator)
+  result =  case operator
+            when 1
+              number1.to_f + number2.to_f
+            when 2
+              number1.to_f - number2.to_f
+            when 3
+              number1.to_f * number2.to_f
+            when 4
+              if number2.to_f.zero?
+                prompt(MESSAGES['zero_div_error'])
+              else
+                number1.to_f / number2.to_f
+              end
+            end
+  results = result.to_s
+  prompt(operation_to_message(operator) + MESSAGES['result'] + results)
+end
+
+
 # Welcome Message
 prompt(MESSAGES['welcome'])
 user_name = get_name(MESSAGES['valid_name'])
@@ -81,25 +101,7 @@ loop do
   prompt(MESSAGES['op_prompt_msg'])
   prompt(MESSAGES['op_selection'])
   operator = get_operation(MESSAGES['op_prompt_msg'])
-
-  result =  case operator
-            when 1
-              number1.to_f + number2.to_f
-            when 2
-              number1.to_f - number2.to_f
-            when 3
-              number1.to_f * number2.to_f
-            when 4
-              if number2.to_f.zero?
-                prompt(MESSAGES['zero_div_error'])
-                prompt(MESSAGES['greater_than_0_number'])
-                number2 = gets.chomp
-              else
-                number1.to_f / number2.to_f
-              end
-            end
-  results = result.to_s
-  prompt(operation_to_message(operator) + MESSAGES['result'] + results)
+  calculation = calculation(number1, number2, operator)
 
   # Prompt user for another calculation
   prompt(MESSAGES['calculate_again?'])
