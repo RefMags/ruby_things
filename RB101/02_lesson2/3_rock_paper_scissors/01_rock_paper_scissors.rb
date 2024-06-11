@@ -27,6 +27,7 @@ end
 
 loop do
   choice = ' '
+
   loop do
     prompt("Choose one: #{VALID_CHOICES.join(', ')}")
     choice = Kernel.gets().chomp()
