@@ -1,9 +1,14 @@
 VALID_CHOICES = %w(rock paper scissors)
+def test_method
+  prompt('test message')
+end
+# test_method
 
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
+test_method
 def win?(first, second)
   (first == 'rock' && second == 'scissors') ||
     (first == 'paper' && second == 'rock') ||
@@ -43,3 +48,5 @@ loop do
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')
 end
+
+prompt("Thank you for playing the game, see you next time")
