@@ -1,14 +1,9 @@
 VALID_CHOICES = %w(rock paper scissors)
-def test_method
-  prompt('test message')
-end
-# test_method
 
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-test_method
 def win?(first, second)
   (first == 'rock' && second == 'scissors') ||
     (first == 'paper' && second == 'rock') ||
