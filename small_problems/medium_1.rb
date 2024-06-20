@@ -46,9 +46,9 @@
 =end
 
 def rotate_first_element(array)
-  # array[1..5] << array[0]
-  array_without_first = array.drop(1)
-  array_without_first << array.first
+  array[1..5] << array.first
+  # array_without_first = array.drop(1)
+  # array_without_first << array.first
 end
 
 arr = [7, 3, 5, 2, 9, 1]
