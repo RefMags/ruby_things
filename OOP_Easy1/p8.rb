@@ -10,6 +10,10 @@ class Rectangle
 end
 
 class Square < Rectangle
+  def initialize(size)
+    @height = size
+    @width = size
+  end
 end
 
 square = Square.new(5)
