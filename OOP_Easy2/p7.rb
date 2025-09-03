@@ -8,10 +8,24 @@ class Pet
 end
 
 class Owner
+  attr_reader :owner_name
 
+  def initialize(owner_name)
+    @owner_name = owner_name
+  end
+
+  # Everytime a person is created, we need to track the number of pets an owner has
 end
 
 class Shelter
+
+  # In the shelter, an owner adopts a pet
+  def adopt(owner, pet)
+
+  end
+
+  # Print the adoptions message for each person and pet `print_adoptions`
+  #
 
 end
 
