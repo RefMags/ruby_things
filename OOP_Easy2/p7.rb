@@ -1,33 +1,3 @@
-class Pet
-  attr_reader :pet_type, :pet_name
-
-  def initialize(pet_type, pet_name)
-    @pet_type = pet_type
-    @pet_name = pet_name
-  end
-end
-
-class Owner
-  attr_reader :owner_name
-
-  def initialize(owner_name)
-    @owner_name = owner_name
-  end
-
-  # Everytime a person is created, we need to track the number of pets an owner has
-end
-
-class Shelter
-
-  # In the shelter, an owner adopts a pet
-  def adopt(owner, pet)
-
-  end
-
-  # Print the adoptions message for each person and pet `print_adoptions`
-  #
-
-end
 
 butterscotch = Pet.new('cat', 'Butterscotch')
 pudding      = Pet.new('cat', 'Pudding')
@@ -48,22 +18,7 @@ shelter.adopt(bholmes, kennedy)
 shelter.adopt(bholmes, sweetie)
 shelter.adopt(bholmes, molly)
 shelter.adopt(bholmes, chester)
+
 shelter.print_adoptions
 puts "#{phanson.name} has #{phanson.number_of_pets} adopted pets."
 puts "#{bholmes.name} has #{bholmes.number_of_pets} adopted pets."
-
-=begin
-P Hanson has adopted the following pets:
-a cat named Butterscotch
-a cat named Pudding
-a bearded dragon named Darwin
-
-B Holmes has adopted the following pets:
-a dog named Molly
-a parakeet named Sweetie Pie
-a dog named Kennedy
-a fish named Chester
-
-P Hanson has 3 adopted pets.
-B Holmes has 4 adopted pets.
-=end
