@@ -9,10 +9,6 @@ class Person
   def teleport_to(latitude, longitude)
     @location = GeoLocation.new(latitude, longitude)
   end
-
-  def ==(other_person)
-    location == other_person.location
-  end
 end
 
 class GeoLocation
@@ -26,6 +22,10 @@ class GeoLocation
   def to_s
     "(#{latitude}, #{longitude})"
   end
+
+  def ==(other)
+    latitude == other.latitude && longitude == other.longitude
+  end
 end
 
 # Example
@@ -36,7 +36,7 @@ ada.location = GeoLocation.new(53.477, -2.236)
 grace = Person.new('Grace')
 grace.location = GeoLocation.new(-33.89, 151.277)
 
-ada.teleport_to(-33.89, 151.277)
+ada.teleport_to(-33.89, 151.277) # teleport `ada` to the same coordinates as `grace`
 
 puts ada.location                   # (-33.89, 151.277)
 puts grace.location                 # (-33.89, 151.277)
